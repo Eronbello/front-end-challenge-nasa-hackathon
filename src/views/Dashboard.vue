@@ -8,12 +8,21 @@ div
             :options="option")
             GmapCluster(:minimumClusterSize="1" @click="openWindow")
               gmap-marker(v-for='(m, index) in markers', :key='index', :position='m.position', :clickable="true" :draggable="true" :label="m.label")
-    v-dialog(v-model="dialog" max-width="620")
+      // v-btn.mx-2(fab='', dark='', large='', bottom, right color='blue' style='position: fixed')
+      button(style='position: fixed; bottom: 30px; background-color: #2196f3; right: 24px; height: 40px; width: 40px; border-radius: 100%;' @click="insert = !insert")
+        v-icon(dark='') mdi-plus
+    v-dialog(v-model="dialog" min-width='650')
       v-card
         v-card-title.headline.grey.lighten-2(style="background-color: #2196f3 !important; color: white")
           | Total diseases last year in Curitiba: {{ total }}
         v-card-text
-          v-chart(:options="chartData" resizable)
+          v-chart(:options="chartData" autoresize)
+    v-dialog(v-model="insert" max-width='650')
+      v-card
+        v-card-title.headline.grey.lighten-2(style="background-color: #2196f3 !important; color: white")
+          | Insert Disease on database
+        v-card-text
+          v-select(:items='items', label='Solo field', solo='')
 </template>
 
 <script>
@@ -27,6 +36,8 @@ export default {
   data () {
     return {
       total: 0,
+      insert: false,
+      items: ['Tuberculose'],
       chartData: {
         title: {
           text: '堆叠区域图'
@@ -182,6 +193,7 @@ export default {
 
 <style lang="scss">
 .echarts {
+  width: 100%;
   height: 200px;
 }
 </style>
