@@ -60,8 +60,13 @@ export default {
     links: [
       {
         to: '/dashboard',
-        icon: 'fas fa-question',
+        icon: 'fas fa-chart-line',
         text: 'Dashboard'
+      },
+      {
+        to: '/disease',
+        icon: 'fas fa-allergies',
+        text: 'Register disease'
       }
     ],
     responsive: false

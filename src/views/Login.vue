@@ -1,6 +1,6 @@
 <template lang="pug">
-v-app#inspire
-  v-content
+v-app
+  v-content#content_login
     v-container(fluid='' fill-height='')
       v-layout(align-center='' justify-center='')
         v-flex(xs12='' sm8='' md4='')
@@ -24,3 +24,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#content_login {
+   @media screen and (max-width: 672px) {
+    background-color: white;
+    h1 {
+      font-size: 28px!important;
+    }
+  }
+}
+</style>

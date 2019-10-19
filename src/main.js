@@ -17,10 +17,18 @@ import i18n from '@/i18n'
 import router from '@/router'
 import store from '@/store'
 import VueTour from 'vue-tour'
-import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
+import '@fortawesome/fontawesome-free/css/all.css'
+import * as VueGoogleMaps from 'vue2-google-maps'
+
 require('vue-tour/dist/vue-tour.css')
 
-Vue.use(VueTour)
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyCu6Kle8KaiTC7y-dslwBa_VQBHWiBWdTE',
+    libraries: 'places' // necessary for places input
+  }
+})
+Vue.use(VueTour) // replace src with dist if you have Babel issues
 
 // Sync store with router
 sync(store, router)

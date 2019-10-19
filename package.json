@@ -28,6 +28,7 @@
     "vue-google-charts": "^0.3.2",
     "vue-meta": "^1.5.2",
     "vue-tour": "^1.1.0",
+    "vue2-google-maps": "^0.10.7",
     "vue2-leaflet": "^2.2.1",
     "vuetify": "^1.2.5"
   },

@@ -1,16 +1,15 @@
 <template lang="pug">
-v-card.elevation-12
-  v-toolbar(color='primary' dark='' flat='')
-  v-card-text
+  div#form_page.px-4
+    img(src='https://st4.depositphotos.com/24222942/25417/v/1600/depositphotos_254179020-stock-illustration-tree-logo-design-minimalist-green.jpg')#logo_login
+    h1.mb-3 Welcome Back,
     v-form
-      v-text-field(v-model="email" label='Email' name='Email' prepend-icon='fas fa-envelope' type='email')
-      v-text-field#password(v-model="password" label='Password' name='password' prepend-icon='fas fa-lock' type='password')
-  v-card-actions
-    v-spacer
-    v-btn(color='#2196f3' style="color: white !important" @click="clicked") Criar conta
-    v-btn(color='#2196f3' style="color: white !important" @click="auth") Login
+      v-text-field(v-model="email" label='Email' name='Email' type='email')
+      v-text-field#password(v-model="password" label='Password' name='password' type='password').mb-3
+      // v-btn(color='#2196f3' style="color: white !important" @click="clicked") Criar conta
+      v-btn(color='#2196f3' style="color: white !important" @click="auth") Login
+      #new_user
+        h2(@click="clicked") New user? Signup
 </template>
-
 <script>
 import {
   mapMutations
@@ -18,7 +17,8 @@ import {
 export default {
   data: () => ({
     email: '',
-    password: ''
+    password: '',
+    url: import('@/img/cashback.png')
   }),
   methods: {
     ...mapMutations('app', ['setLogin']),
@@ -42,3 +42,38 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#form_page {
+  @media screen and (max-width: 672px) {
+    #logo_login {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      top: 5%;
+      left: 36%;
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 28px !important;
+      font-weight: 400 !important;
+      color: #756c6c;
+    }
+    button {
+      width: 100%;
+    }
+    h2 {
+      text-align: right;
+      color: #756c6c;
+      font-weight: 400 !important;
+      margin-top: 0px;
+      font-size: 16px !important;
+    }
+    #new_user {
+      position: absolute;
+      bottom: 5%;
+      left: 32%;
+    }
+  }
+}
+</style>

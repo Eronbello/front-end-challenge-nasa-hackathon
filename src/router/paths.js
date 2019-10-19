@@ -17,6 +17,12 @@ export default [
     view: 'Maps'
   },
   {
+    path: '/disease',
+    name: 'Disease',
+    // Relative to /src/views
+    view: 'RegisterDisease'
+  },
+  {
     path: '/achievements',
     // Relative to /src/views
     view: 'MinhasConquistas'

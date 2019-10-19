@@ -1,16 +1,15 @@
 <template lang="pug">
-v-card.elevation-12
-  v-toolbar(color='primary' dark='' flat='')
-  v-card-text
+  div#form_page.px-4
+    img(src='https://st4.depositphotos.com/24222942/25417/v/1600/depositphotos_254179020-stock-illustration-tree-logo-design-minimalist-green.jpg')#logo_login
+    h1.mb-3 Register
     v-form
-      v-text-field(label='Nome' name='Nome' prepend-icon='mdi-account' type='text')
-      v-text-field(label='Email' name='Email' prepend-icon='mdi-account' type='email')
-      v-text-field#password(label='Senha' name='password' prepend-icon='fas fa-lock' type='password')
-      v-text-field#password(label='Confirmação de senha' name='password' prepend-icon='fas fa-lock' type='password')
-  v-card-actions
-    v-spacer
-    v-btn(color='#2196f3' style="color: white !important" @click="clicked") Já tenho uma conta
-    v-btn(color='#2196f3' style="color: white !important") Criar conta
+      v-text-field(label='Name' name='Name' type='text')
+      v-text-field(label='Email' name='Email' type='email')
+      v-text-field#password(label='Password' name='password' type='password').mb-3
+      v-text-field#password(label='Confirm password' name='password' type='password').mb-3
+      v-btn(color='#2196f3' style="color: white !important") Register
+      #new_user.fix
+        h2(@click="clicked") Already have a user? Sign
 </template>
 
 <script>
@@ -22,3 +21,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .fix {
+    left: 24% !important;
+  }
+</style>
